@@ -1,0 +1,29 @@
+web:
+  container_name: tj-web
+  restart: always
+  build: .
+  volumes:
+    - ".:/code/app"
+  ports:
+    - "80:80"
+    - "8080:8080"
+  links:
+    - postgres
+    - redis
+
+postgres:
+  image: postgres:9.6.2
+  container_name: tj-postgres
+  environment:
+    - POSTGRES_DB=postgresql
+    - POSTGRES_USER=postgresql
+    - POSTGRES_PASSWORD=postgresql
+  ports:
+    - "5432:5432"
+
+redis:
+  image: redis:3.2.8
+  container_name: tj-redis
+  command: redis-server --requirepass redis
+  ports:
+    - "6379:6379"
