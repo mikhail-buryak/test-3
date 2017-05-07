@@ -5,7 +5,7 @@ MAINTAINER Mikhail Buryak <buryak.mikhail@gmail.com>
 RUN apt-get update
 RUN apt-get install -y software-properties-common
 RUN apt-get install -y nginx supervisor curl nodejs npm ruby libnotify-bin
-RUN apt-get install -y php5-fpm php5-mcrypt php5-pgsql php5-curl
+RUN apt-get install -y php5-fpm php5-mcrypt php5-pgsql php5-curl php5-gd
 
 # Configure Nginx
 ADD server-config/nginx /etc/nginx
